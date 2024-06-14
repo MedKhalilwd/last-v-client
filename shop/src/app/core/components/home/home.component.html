@@ -1,0 +1,74 @@
+<div class="hero-slider">
+  <div style="display: flex; overflow: hidden; width: 100%; max-height: 650px;min-height: 650px;border: 2px solid red;">
+    <div *ngFor="let item of items; let i = index" [ngStyle]="{'display': i === currentIndex ? 'block' : 'none', 'width': '100%'}">
+      <img  [src]="'http://localhost:3000/uploads/' + item.image" alt="Slide {{ i + 1 }}" style="width: 100%; border-radius: 10px; background-size: cover;height: 100%;">
+    </div>
+  </div>
+  <button id="prev-slide" class="slider-button left" (click)="prevSlide()">&#10094;</button>
+  <button id="next-slide" class="slider-button right" (click)="nextSlide()">&#10095;</button>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>Product Informatique</h2>
+    <p>Kdnn fibif iufizbenf iudfns iudshuisd iusdnsdn sd sdubnsj sjdnkjsd disuubnfj</p>
+  </div>
+</div>
+
+<!-- OFFERS -->
+<div class="section">
+  <h2 style="padding: 10px;width: 100%;background-color: rgb(255, 37, 168);font-weight: bold;font-size: 48px;text-transform: uppercase;">Offers</h2>
+  <div class="product-carousel">
+    <div class="product-carousel-inner product-carousel-inner-offers">
+      <div class="prod" *ngFor="let product of productsoffer">
+        <ng-container *ngIf="product.images && product.images.length > 0">
+          <img [src]="'http://localhost:3000/multiplefiles/' + product.images[0]" alt="" class="product-image">
+        </ng-container>
+        <h3 class="product-title" [routerLink]="['/categories', 'product', product._id]">{{ product.title }}</h3>
+        <p class="product-price"><strong>Price:</strong> {{ product.price }} dt</p>
+        <p class="product-price"><strong>New Price:</strong> {{ product.newprice }} dt</p>
+        <p class="product-points"><strong>Points:</strong> {{ product.pointProduct }}</p>
+      </div>
+    </div>
+    <button id="prev-offers" class="carousel-button left" (click)="prevProduct('offers')">&#10094;</button>
+    <button id="next-offers" class="carousel-button right" (click)="nextProduct('offers')">&#10095;</button>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section">
+  <h2 style="padding: 10px;width: 100%;background-color: rgb(255, 170, 96);font-weight: bold;font-size: 48px;text-transform: uppercase;">Products</h2>
+  <div class="product-carousel">
+    <div class="product-carousel-inner product-carousel-inner-products">
+      <div class="prod" *ngFor="let product of products">
+        <ng-container *ngIf="product.images && product.images.length > 0">
+          <img [src]="'http://localhost:3000/multiplefiles/' + product.images[0]" alt="" class="product-image">
+        </ng-container>
+        <h3 class="product-title" [routerLink]="['/categories', 'product', product._id]">{{ product.title }}</h3>
+        <p class="product-price"><strong>Price:</strong> {{ product.price }} dt</p>
+        <p class="product-points"><strong>Points:</strong> {{ product.pointProduct }}</p>
+      </div>
+    </div>
+    <button id="prev-products" class="carousel-button left" (click)="prevProduct('products')">&#10094;</button>
+    <button id="next-products" class="carousel-button right" (click)="nextProduct('products')">&#10095;</button>
+  </div>
+</div>
+
+<!-- RECOMPENSES -->
+<div class="section">
+  <h2 style=" padding: 10px;width: 100%;background-color: rgb(96, 181, 255);font-weight: bold;font-size: 48px;text-transform: uppercase;">Recompenses</h2>
+  <div class="product-carousel">
+    <div class="product-carousel-inner product-carousel-inner-recompenses">
+      <div class="prod" *ngFor="let product of productsrecompense">
+        <ng-container *ngIf="product.images && product.images.length > 0">
+          <img [src]="'http://localhost:3000/multiplefiles/' + product.images" alt="" class="product-image">
+        </ng-container>
+        <h3 class="product-title" [routerLink]="['/categories', 'product', product._id]">{{ product.name }}</h3>
+        <p class="product-points"><strong>Points:</strong> {{ product.point }}</p>
+      </div>
+    </div>
+    <button id="prev-recompenses" class="carousel-button left" (click)="prevProduct('recompenses')">&#10094;</button>
+    <button id="next-recompenses" class="carousel-button right" (click)="nextProduct('recompenses')">&#10095;</button>
+  </div>
+</div>
+
